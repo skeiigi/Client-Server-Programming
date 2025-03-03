@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Моя форма</title>
+</head>
+<body>
+    <h1>Форма</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Отправить</button>
+    </form><br>
+    <a href="{% url 'main_view' %}">Вернуться</a>
+
+    {% if data %}
+        <h2>Данные из формы:</h2>
+        <table border="4">
+            <tr>
+                <th>Поле</th>
+                <th>Значение</th>
+            </tr>
+            <tr>
+                <td>Имя</td>
+                <td>{{ data.name }}</td>
+            </tr>
+            <tr>
+                <td>Email</td>
+                <td>{{ data.email }}</td>
+            </tr>
+            <tr>
+                <td>Пол</td>
+                <td>{{ data.gender }}</td>
+            </tr>
+            <tr>
+                <td>Подписка</td>
+                <td>{{ data.subscribe|yesno:"Да,Нет" }}</td>
+            </tr>
+            <tr>
+                <td>Сообщение</td>
+                <td>{{ data.message }}</td>
+            </tr>
+        </table>
+    {% endif %}
+</body>
+</html>
