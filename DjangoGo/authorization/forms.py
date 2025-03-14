@@ -1,6 +1,6 @@
 from django import forms
 
-
+#Hello my friend, do you like a little boobs?
 class MyForm(forms.Form):
     name = forms.CharField(label='Ваше имя', max_length=100, required=True)
 
